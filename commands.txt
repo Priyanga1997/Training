@@ -1,0 +1,30 @@
+scaffold-DbContext "Data Source=CTSDOTNET852;Initial Catalog=Author;User ID=sa;Password=pass@word1;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -f
+https://www.rabbitmq.com/install-windows.html
+http://localhost:15672/#/queues
+http://localhost:8500/ui/dc1/services
+https://www.consul.io/downloads
+https://github.com/Priyanga1997/AuthorReader.UI
+rabbitmq-plugins enable rabbitmq_management
+zookerper start
+.\zookeeper-server-start.bat C:\Kafka-bin\config\zookeeper.properties
+
+kafka start
+
+.\kafka-server-start.bat  C:\Kafka-bin\config\server.properties
+
+start producer
+
+kafka-console-producer.bat --broker-list localhost:9092 --topic temp-topic
+
+
+start consumer
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic temp-topic --from-beginning
+
+
+dotnet new --install IdentityServer4.Templates
+
+scoped for every request we will get new instance
+transit a new service instance is created for each object in the http request
+singleton only service instnace will be created throught the lifetime
+
