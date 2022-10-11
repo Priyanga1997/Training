@@ -1,0 +1,27 @@
+{
+  "Routes": [
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Catalog",
+      "DownstreamScheme": "https",
+      "ServiceName": "catalogService",
+      "UpstreamPathTemplate": "/api/gateway/catalog/findall",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/WeatherForecast",
+      "DownstreamScheme": "https",
+      "ServiceName": "orderService",
+      "UpstreamPathTemplate": "/api/gateway/order/findall",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": "8500",
+      "Type": "Consul"
+    }
+  }
+}
