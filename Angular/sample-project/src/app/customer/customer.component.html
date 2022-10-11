@@ -1,0 +1,48 @@
+<form [formGroup]="CustomerModel.formCustomerGroup">
+<h5>Add Customer</h5>
+Customer Code
+<input [(ngModel)]="CustomerModel.customerCode" formControlName="CustomerCodeControl" type="text" /><br/><br/>
+<p style="color: red;" [hidden]="!(hasError('pattern','CustomerCodeControl'))">Customer Code should be proper</p>
+<p style="color: red;" [hidden]="!(hasError('required','CustomerCodeControl'))">Customer Code is required</p>
+Customer Name
+<input [(ngModel)]="CustomerModel.customerName" formControlName="CustomerNameControl" type="text" /><br/><br/>
+Customer Amount
+<input [(ngModel)]="CustomerModel.customerAmount" formControlName="CustomerAmountControl" type="text" /><br/><br/>
+<input type="button" [disabled]="!(CustomerModel.formCustomerGroup.valid)" value="Add Customer" (click)="Add()"/>
+</form>
+<!-- <br/>
+<label style="color: red;">{{ErrorMessage}}</label>
+
+<div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: red;" id="exampleModalToggleLabel">Error </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       {{ErrorMessage}}
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" id="btnErrorMsg" style="display: none;" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
+<!-- {{CustomerModel.CustomerName}} -->
+ <!-- <img [src]="imageURL" /> -->
+ <!-- <table>
+  <tr>
+      <td>Customer Code</td>
+      <td>Customer Name</td>
+      <td>Customer Amount</td>
+  </tr>
+  <tr *ngFor="let cust of CustomerModels">
+      <td>{{cust.CustomerCode}}</td>
+      <td>{{cust.CustomerName}}</td>
+      <td>{{cust.CustomerAmount}}</td>
+  </tr>
+</table> -->
+<app-grid-ui  [grid-columns]="[{'colName':'id'},{'colName':'customerCode'},{'colName':'customerName'},{'colName':'customerAmount'}]"
+[grid-data]="CustomerModels" (grid-selected)="EditCustomer($event)"
+(grid-deleted)="DeleteCustomer($event)"
+></app-grid-ui>
+

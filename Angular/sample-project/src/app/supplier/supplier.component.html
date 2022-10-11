@@ -1,0 +1,24 @@
+<h5>Add Supplier</h5>
+Supplier Code
+<input [(ngModel)]="SupplierModel.SupplierCode" type="text" /><br/><br/>
+Supplier Name
+<input [(ngModel)]="SupplierModel.SupplierName" type="text" /><br/><br/>
+Supplier Amount
+<input [(ngModel)]="SupplierModel.SupplierAmount" type="text" /><br/><br/>
+<input type="button" value="Add Supplier" (click)="Add()"/>
+
+<!-- <table>
+    <tr>
+        <td>Supplier Code</td>
+        <td>Supplier Name</td>
+        <td>Supplier Amount</td>
+    </tr>
+    <tr *ngFor="let suppl of SupplierModels">
+        <td>{{suppl.SupplierCode}}</td>
+        <td>{{suppl.SupplierName}}</td>
+        <td>{{suppl.SupplierAmount}}</td>
+    </tr>
+  </table> -->
+  <app-grid-ui  [grid-columns]="[{'colName':'id'},{'colName':'SupplierCode'},{'colName':'SupplierName'},{'colName':'SupplierAmount'}]"
+[grid-data]="SupplierModels"
+></app-grid-ui>
